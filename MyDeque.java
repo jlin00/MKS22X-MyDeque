@@ -5,19 +5,27 @@ public class MyDeque<E>{
   @SuppressWarnings("unchecked")
   public MyDeque(){
     data = (E[])new Object[10];
+    size = 0;
   }
 
   @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
     data = (E[])new Object[initialCapacity];
+    size = 0;
   }
 
   public int size(){
-    return 0;
+    return size;
   }
 
   public String toString(){
-    return "";
+    String output = "";
+    int index = start;
+    for (int i = 0; i < size; i++){
+      output += data[index % data.length];
+      index++;
+    }
+    return output;
   }
 
   public void addFirst(E element){
@@ -28,20 +36,20 @@ public class MyDeque<E>{
 
   }
 
-  public E removeFirst(E element){
-    return element;
+  public E removeFirst(){
+    return data[0];
   }
 
-  public E removeLast(E element){
-    return element;
+  public E removeLast(){
+    return data[0];
   }
 
-  public E getFirst(E element){
-    return element;
+  public E getFirst(){
+    return data[0];
   }
 
-  public E getLast(E element){
-    return element;
+  public E getLast(){
+    return data[0];
   }
 
 }
