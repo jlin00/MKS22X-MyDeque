@@ -71,25 +71,25 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
-    E original = data[start];
-    if (start == data.length - 1) start = 0;
-    else start++;
+    E original = data[start]; //stores original element
+    if (start == data.length - 1) start = 0; //if start is at the end of the array
+    else start++; //else increase start normally
     return original;
   }
 
   public E removeLast(){
-    E original = data[end];
-    if (end == 0) end = data.length - 1;
-    else end--;
+    E original = data[end]; //stores original element
+    if (end == 0) end = data.length - 1; //if end is at the beginning of the array
+    else end--; //else decrease end normally
     return original;
   }
 
   public E getFirst(){
-    return data[start];
+    return data[start]; //return start
   }
 
   public E getLast(){
-    return data[end];
+    return data[end]; //return end
   }
 
 }
