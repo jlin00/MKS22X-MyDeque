@@ -41,7 +41,10 @@ public class MyDeque<E>{
   }
 
   public void addFirst(E element){
-    if (size == data.length) resize(); //resize if filled up array
+    if (size == data.length){
+      resize(); //resize if filled up array
+      //System.out.println("had to resize"); //for debugging purposes
+    }
     if (size != 0){ //if size is zero, start doesn't change
       if (start == 0){ //if start is at beginning of array
         start = data.length - 1; //loop around
@@ -49,27 +52,44 @@ public class MyDeque<E>{
       else start--; //else decrease start
     }
     data[start] = element; //add in element
-    size++; //increase size 
+    size++; //increase size
   }
 
   public void addLast(E element){
-    if (size == data.length) resize(); //resize if filled up array
+    if (size == data.length){
+      resize(); //resize if filled up array
+      //System.out.println("had to resize"); //for debugging purposes
+    }
+    if (size != 0){ //if size is zero, end doesn't change
+      if (end == data.length - 1){ //if end is at the end of the array
+        end = 0; //loop back around
+      }
+      else end++; //else increase end
+    }
+    data[end] = element; //add in element
+    size++; //increase size
   }
 
   public E removeFirst(){
-    return data[0];
+    E original = data[start];
+    if (start == data.length - 1) start = 0;
+    else start++;
+    return original;
   }
 
   public E removeLast(){
-    return data[0];
+    E original = data[end];
+    if (end == 0) end = data.length - 1;
+    else end--;
+    return original;
   }
 
   public E getFirst(){
-    return data[0];
+    return data[start];
   }
 
   public E getLast(){
-    return data[0];
+    return data[end];
   }
 
 }
