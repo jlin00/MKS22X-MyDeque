@@ -41,11 +41,19 @@ public class MyDeque<E>{
   }
 
   public void addFirst(E element){
-
+    if (size == data.length) resize(); //resize if filled up array
+    if (size != 0){ //if size is zero, start doesn't change
+      if (start == 0){ //if start is at beginning of array
+        start = data.length - 1; //loop around
+      }
+      else start--; //else decrease start
+    }
+    data[start] = element; //add in element
+    size++; //increase size 
   }
 
   public void addLast(E element){
-
+    if (size == data.length) resize(); //resize if filled up array
   }
 
   public E removeFirst(){
