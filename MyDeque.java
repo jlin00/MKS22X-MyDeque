@@ -20,8 +20,7 @@ public class MyDeque<E>{
     String output = "{";
     int index = start; //starts at start
     for (int i = 0; i < size; i++){ //loops through number of elements
-      output += data[index % data.length]; //add element modded by data.length
-      if (i != size - 1) output += " "; //add comma
+      output += data[index % data.length] + " "; //add element modded by data.length
       index++;
     }
     return output + "}";
