@@ -74,6 +74,7 @@ public class MyDeque<E>{
     E original = data[start]; //stores original element
     if (start == data.length - 1) start = 0; //if start is at the end of the array
     else start++; //else increase start normally
+    size--;
     return original;
   }
 
@@ -81,6 +82,7 @@ public class MyDeque<E>{
     E original = data[end]; //stores original element
     if (end == 0) end = data.length - 1; //if end is at the beginning of the array
     else end--; //else decrease end normally
+    size--;
     return original;
   }
 
