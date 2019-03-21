@@ -5,13 +5,11 @@ public class MyDeque<E>{
   @SuppressWarnings("unchecked")
   public MyDeque(){
     data = (E[])new Object[10];
-    size = 0;
   }
 
   @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
     data = (E[])new Object[initialCapacity];
-    size = 0;
   }
 
   public int size(){
@@ -19,13 +17,18 @@ public class MyDeque<E>{
   }
 
   public String toString(){
-    String output = "";
+    String output = "{";
     int index = start;
     for (int i = 0; i < size; i++){
       output += data[index % data.length];
+      if (i != size - 1) output += ", ";
       index++;
     }
-    return output;
+    return output + "}";
+  }
+
+  private void resize(){
+    
   }
 
   public void addFirst(E element){
