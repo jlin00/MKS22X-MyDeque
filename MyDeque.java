@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
@@ -40,6 +42,7 @@ public class MyDeque<E>{
   }
 
   public void addFirst(E element){
+    if (element == null) throw new NullPointerException();
     if (size == data.length){
       resize(); //resize if filled up array
       //System.out.println("had to resize"); //for debugging purposes
@@ -55,6 +58,7 @@ public class MyDeque<E>{
   }
 
   public void addLast(E element){
+    if (element == null) throw new NullPointerException();
     if (size == data.length){
       resize(); //resize if filled up array
       //System.out.println("had to resize"); //for debugging purposes
@@ -70,6 +74,7 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
+    if (size == 0) throw new NoSuchElementException();
     E original = data[start]; //stores original element
     if (start == data.length - 1) start = 0; //if start is at the end of the array
     else start++; //else increase start normally
@@ -78,6 +83,7 @@ public class MyDeque<E>{
   }
 
   public E removeLast(){
+    if (size == 0) throw new NoSuchElementException();
     E original = data[end]; //stores original element
     if (end == 0) end = data.length - 1; //if end is at the beginning of the array
     else end--; //else decrease end normally
@@ -86,10 +92,12 @@ public class MyDeque<E>{
   }
 
   public E getFirst(){
+    if (size == 0) throw new NoSuchElementException();
     return data[start]; //return start
   }
 
   public E getLast(){
+    if (size == 0) throw new NoSuchElementException();
     return data[end]; //return end
   }
 
