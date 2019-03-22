@@ -76,8 +76,11 @@ public class MyDeque<E>{
   public E removeFirst(){
     if (size == 0) throw new NoSuchElementException();
     E original = data[start]; //stores original element
-    if (start == data.length - 1) start = 0; //if start is at the end of the array
-    else start++; //else increase start normally
+    data[start] = null;
+    if (size != 1){ //if size is 1, start does not change (remains at same index)
+      if (start == data.length - 1) start = 0; //if start is at the end of the array
+      else start++; //else increase start normally
+    }
     size--;
     return original;
   }
@@ -85,8 +88,11 @@ public class MyDeque<E>{
   public E removeLast(){
     if (size == 0) throw new NoSuchElementException();
     E original = data[end]; //stores original element
-    if (end == 0) end = data.length - 1; //if end is at the beginning of the array
-    else end--; //else decrease end normally
+    data[end] = null;
+    if (size != 1){ //if size is 1, end does not change (remains at same index)
+      if (end == 0) end = data.length - 1; //if end is at the beginning of the array
+      else end--; //else decrease end normally
+    }
     size--;
     return original;
   }
