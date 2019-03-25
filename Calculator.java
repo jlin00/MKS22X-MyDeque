@@ -11,27 +11,34 @@ public class Calculator{
       System.out.println(Arrays.toString(split)); //for debugging purposes
 
       for (int i = 0; i < split.length; i++){
-        //System.out.println(split[i]); //for debugging purposes;
-        if (split[i].equals("+")){
+        //System.out.println(value); //for debugging purposes;
+        String value = split[i];
+        if (value.equals("+")){
+          stack.addLast(stack.removeLast() + stack.removeLast());
           System.out.println("plus");
         }
-        if (split[i].equals("-")){
+        else if (value.equals("-")){
+          stack.addLast(stack.removeLast() - stack.removeLast());
           System.out.println("minus");
         }
-        if (split[i].equals("*")){
+        else if (value.equals("*")){
+          stack.addLast(stack.removeLast() * stack.removeLast());
           System.out.println("times");
         }
-        if (split[i].equals("/")){
+        else if (value.equals("/")){
+          stack.addLast(stack.removeLast() / stack.removeLast());
           System.out.println("divide");
         }
-        if (split[i].equals("%")){
+        else if (value.equals("%")){
+          stack.addLast(stack.removeLast() % stack.removeLast());
           System.out.println("remainder");
         }
         else{
+          stack.addLast(Double.parseDouble(value));
           System.out.println("number");
         }
       }
-      return 0.0;
+      return stack.getLast();
     }
 
     public static void main(String[] args) {
